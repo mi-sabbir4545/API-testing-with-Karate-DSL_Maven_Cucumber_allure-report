@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/java\/Sample\/GetUser[1:8]","start":1669734770668,"end":1669734773165,"title":"src\/test\/java\/Sample\/GetUser[1:8] 21:12:50.668-21:12:53.165 Perform get request for List User"},{"id":2,"group":1,"content":"src\/test\/java\/Sample\/GetUser[2:22]","start":1669734773180,"end":1669734773460,"title":"src\/test\/java\/Sample\/GetUser[2:22] 21:12:53.180-21:12:53.460 Get API with background"},{"id":3,"group":1,"content":"src\/test\/java\/Sample\/GetUser[3:28]","start":1669734773473,"end":1669734773708,"title":"src\/test\/java\/Sample\/GetUser[3:28] 21:12:53.473-21:12:53.708 Get API with background but with path and param separated"},{"id":4,"group":1,"content":"src\/test\/java\/Sample\/GetUser[4:39]","start":1669734773720,"end":1669734773985,"title":"src\/test\/java\/Sample\/GetUser[4:39] 21:12:53.720-21:12:53.985 Get API with getting a specified attribute"},{"id":5,"group":1,"content":"src\/test\/java\/Sample\/GetUser[5:46]","start":1669734774021,"end":1669734774263,"title":"src\/test\/java\/Sample\/GetUser[5:46] 21:12:54.021-21:12:54.263 Get API with single user"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
